@@ -1,7 +1,5 @@
 [nodes]
-192.168.175.142
-192.168.175.143
-192.168.175.144
 
-[nodes:vars]
-ansible_connection=ssh
+192.168.175.142 ansible_user=node1 ansible_password=Password
+192.168.175.143 ansible_user=node2 ansible_password=Password
+192.168.175.144 ansible_user=node3 ansible_password=Password
