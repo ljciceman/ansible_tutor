@@ -8,3 +8,5 @@
 192.168.175.144 ansible_user=node3 ansible_password=Password ansible_python_interpreter=/usr/bin/python3.12 apache_package=apache2 php_package=libapache2-mod-php
 192.168.175.146 ansible_user=node4 ansible_password=Password ansible_python_interpreter=/usr/bin/python3.12 apache_package=httpd php_package=php
 
+[workstations]
+192.168.175.145 ansible_user=masternode ansible_password=Password
