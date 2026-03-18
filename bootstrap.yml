@@ -1,0 +1,45 @@
+---
+
+- hosts: all
+  become: true
+  tasks:
+
+  - name: install updates (CentOS)
+    tags: always
+    dnf:
+      update_only: yes
+      update_cache: yes
+    when: ansible_distribution == "CentOS"
+
+
+  - name: install updates (Ubuntu)
+    tags: always
+    apt:
+      upgrade: dist
+      update_cache: yes
+    when: ansible_distribution == "Ubuntu"
+
+- hosts: all
+  become: true
+  tasks:
+
+  - name: create Sam user
+    tags: always
+    user:
+      name: Sam
+      groups: root
+
+  - name: add ssh key for Sam
+    tags: always
+    authorized_key:
+      user: Sam
+      key: "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIBcrDcBtYu0cnGFcMa7on5htUfDp7SOIW+2MTSpmXbGI Ansible"
+
+  - name: add sudoers file for Sam
+    tags: always
+    copy:
+      src: sudoer_Sam
+      dest: /etc/sudoers.d/Sam
+      owner: root
+      group: root
+      mode: 0440
