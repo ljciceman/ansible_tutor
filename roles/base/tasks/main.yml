@@ -1,0 +1,5 @@
+- name: add ssh key for Sam
+  tags: always
+  authorized_key:
+    user: Sam
+    key: "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIBcrDcBtYu0cnGFcMa7on5htUfDp7SOIW+2MTSpmXbGI Ansible"
